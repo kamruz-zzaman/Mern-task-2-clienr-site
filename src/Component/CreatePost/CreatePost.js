@@ -13,8 +13,8 @@ const CreatePost = () => {
                                         id="about"
                                         name="about"
                                         rows={4}
-                                        className="shadow-sm mt-1 block w-full sm:text-sm p-5 border border-gray-300 rounded-md"
-                                        placeholder="Whats your mind"
+                                        className="shadow-sm mt-1 block w-full sm:text-sm p-5 border border-gray-300 rounded-md "
+                                        placeholder="Whats your mind ?"
                                         defaultValue={''}
                                     />
                                 </div>
@@ -24,7 +24,7 @@ const CreatePost = () => {
                                             htmlFor="file-upload"
                                             className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                                         >
-                                            <p className='text-center' title='img/vedio'>Upload a file</p>
+                                            <p className='text-center cursor-copy' title='img/vedio'>Upload a file</p>
                                             <input id="file-upload" name="file-upload" type="file" className="sr-only" />
                                         </label>
                                     </div>

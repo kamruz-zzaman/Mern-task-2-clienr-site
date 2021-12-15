@@ -68,13 +68,15 @@ const Home = () => {
                                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                                     {/* Profile dropdown */}
                                     <Menu as="div" className="ml-3 relative">
-                                        <div className='flex justify-between'>
-                                            <Link to='signUp' class="w-24 flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
-                                                Sign up
-                                            </Link>
-                                            <Link to='signin' class="w-24 mx-5 flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
-                                                Sign In
-                                            </Link>
+                                        <div className='hidden sm:block'>
+                                            <div className=' flex justify-between'>
+                                                <Link to='signUp' class="w-24 flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+                                                    Sign up
+                                                </Link>
+                                                <Link to='signin' class="w-24 mx-5 flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+                                                    Sign In
+                                                </Link>
+                                            </div>
                                         </div>
                                         <Transition
                                             as={Fragment}

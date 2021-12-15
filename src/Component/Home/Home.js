@@ -6,10 +6,8 @@ import logo from '../../Images/whole.png'
 import { Link } from 'react-router-dom'
 
 const navigation = [
-    { name: 'NewsFeed', href: '#', current: true },
-    { name: 'Create Post', href: '#', current: false },
-    { name: 'Projects', href: '#', current: false },
-    { name: 'Calendar', href: '#', current: false },
+    { name: 'Your Posts', href: '#', current: false },
+    { name: 'Create Post', href: 'createPost', current: false },
 ]
 
 function classNames(...classes) {
@@ -36,23 +34,25 @@ const Home = () => {
                                 </div>
                                 <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                                     <div className="flex-shrink-0 flex items-center">
-                                        <img
+                                        <Link to='/'><img
                                             className="block lg:hidden h-8 w-auto"
                                             src={logo}
                                             alt="Workflow"
-                                        />
-                                        <img
-                                            className="hidden lg:block h-8 w-auto"
-                                            src={logo}
-                                            alt="Workflow"
-                                        />
+                                        /></Link>
+                                        <Link to='/'>
+                                            <img
+                                                className="hidden lg:block h-8 w-auto"
+                                                src={logo}
+                                                alt="Workflow"
+                                            />
+                                        </Link>
                                     </div>
                                     <div className="hidden sm:block sm:ml-6">
                                         <div className="flex space-x-4">
                                             {navigation.map((item) => (
-                                                <a
+                                                <Link
                                                     key={item.name}
-                                                    href={item.href}
+                                                    to={item.href}
                                                     className={classNames(
                                                         item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                                                         'px-3 py-2 rounded-md text-sm font-medium'
@@ -60,7 +60,7 @@ const Home = () => {
                                                     aria-current={item.current ? 'page' : undefined}
                                                 >
                                                     {item.name}
-                                                </a>
+                                                </Link>
                                             ))}
                                         </div>
                                     </div>

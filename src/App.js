@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import CreatePost from './Component/CreatePost/CreatePost';
+import EditPost from './Component/EditPost/EditPost';
 import ForGotPass from './Component/ForgotPass/ForGotPass';
 import Home from './Component/Home/Home';
 import SignIn from './Component/SignInForm/SignIn';
@@ -29,6 +30,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path="forgotPass" element={<ForGotPass />}></Route>
+        </Routes>
+        <Routes>
+          <Route path="status/:id" element={<EditPost />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

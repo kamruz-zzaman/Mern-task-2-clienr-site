@@ -3,7 +3,7 @@ import { Menu, Transition } from '@headlessui/react'
 import { Link } from 'react-router-dom';
 
 const UserStatusCard = ({ userStatus }) => {
-    const { texStatus, image } = userStatus;
+    const { _id, texStatus, image } = userStatus;
     return (
         <>
             <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col border-2">
@@ -38,7 +38,7 @@ const UserStatusCard = ({ userStatus }) => {
                                                 <Menu.Item>
                                                     {({ active }) => (
                                                         <Link
-                                                            to=""
+                                                            to={`/status/${_id}`}
                                                             className='block text-center font-bold hover:bg-violet-600 hover:text-white'
                                                         >
                                                             Edit Post
@@ -85,7 +85,7 @@ const UserStatusCard = ({ userStatus }) => {
                                             <Menu.Item>
                                                 {({ active }) => (
                                                     <Link
-                                                        to=""
+                                                        to={`/status/${_id}`}
                                                         className='block text-center font-bold hover:bg-violet-600 hover:text-white'
                                                     >
                                                         Edit Post

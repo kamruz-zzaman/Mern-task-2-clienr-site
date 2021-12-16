@@ -12,6 +12,7 @@ const UserStatus = () => {
             .then(data => setStatus(data)
             )
     }, []);
+
     return (
         <>
             {

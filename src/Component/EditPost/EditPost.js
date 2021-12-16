@@ -1,28 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import swal from 'sweetalert';
+import { useParams } from 'react-router-dom';
+import { useState } from 'react/cjs/react.development';
 
-const CreatePost = () => {
+const EditPost = () => {
+    const { id } = useParams();
+    const [updatePost, seUpdatePost] = useState([]);
+    // fetching packages by id
+    useEffect(() => {
+        fetch(`http://localhost:5000/status/${id}`)
+            .then(res => res.json())
+            .then(data => seUpdatePost(data));
+    }, []);
+    console.log(updatePost.texStatus);
     const { register, handleSubmit, reset } = useForm();
-    // make hook form respons
     const onSubmit = data => {
-        const formData = new FormData();
-        formData.append('userStatus', data.texStatus);
-        formData.append('Image', data.imgStatus[0]);
-        fetch('http://localhost:5000/status', {
-            method: 'POST',
-            body: formData
-        })
-            .then(response => response.json())
-            .then(result => {
-                if (result) {
-                    swal({
-                        title: "Sign In successfull!",
-                        icon: "success",
-                    })
-                }
-            })
-        reset()
+
     }
     return (
         <>
@@ -68,4 +61,4 @@ const CreatePost = () => {
     );
 };
 
-export default CreatePost;
+export default EditPost;

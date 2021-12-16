@@ -5,6 +5,20 @@ const SignUp = () => {
     const { register, handleSubmit, reset } = useForm();
     // make hook form respons
     const onSubmit = data => {
+        fetch('http://localhost:5000/user', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => {
+                // make response after post
+                if (res.ok) {
+                    alert('package added successfully')
+                }
+            })
+        reset()
     }
     reset()
     return (
@@ -21,7 +35,7 @@ const SignUp = () => {
                         <div className="rounded-md shadow-sm -space-y-px">
                             <div>
                                 <label for="email-address" className="sr-only">Email address</label>
-                                <input id="email-address" name="email" type="email" autocomplete="name" {...register("userName", { required: true })} className="appearance-none rounded-none relative block w-full my-1 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Username" />
+                                <input id="email-address" name="text" type="text" autocomplete="name" {...register("userName", { required: true })} className="appearance-none rounded-none relative block w-full my-1 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Username" />
                             </div>
                             <div>
                                 <label for="email-address" className="sr-only">Email address</label>
@@ -30,10 +44,6 @@ const SignUp = () => {
                             <div>
                                 <label for="password" className="sr-only">Password</label>
                                 <input id="password" name="password" type="password" autocomplete="current-password" {...register("password", { required: true })} className="appearance-none rounded-none relative block w-full my-1 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password" />
-                            </div>
-                            <div>
-                                <label for="password" className="sr-only">Password</label>
-                                <input id="password" name="password" type="password" autocomplete="current-password" {...register("rePassword", { required: true })} className="appearance-none rounded-none relative block w-full my-1 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Re-Enter Password" />
                             </div>
                         </div>
 

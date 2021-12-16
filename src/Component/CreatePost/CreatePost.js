@@ -1,11 +1,30 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
 const CreatePost = () => {
+    const { register, handleSubmit, reset } = useForm();
+    // make hook form respons
+    const onSubmit = data => {
+        fetch('http://localhost:5000/status', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => {
+                // make response after post
+                if (res.ok) {
+                    alert('package added successfully')
+                }
+            })
+        reset()
+    }
     return (
         <>
             <div className=' mt-10 w-96 mx-auto '>
                 <div className="mt-5 md:mt-0">
-                    <form action="#" method="POST">
+                    <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="shadow sm:rounded-md sm:overflow-hidden">
                             <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
                                 <div className="mt-1">
@@ -15,7 +34,7 @@ const CreatePost = () => {
                                         rows={4}
                                         className="shadow-sm mt-1 block w-full sm:text-sm p-5 border border-gray-300 rounded-md "
                                         placeholder="Whats your mind ?"
-                                        defaultValue={''}
+                                        {...register("texStatus", { required: true })}
                                     />
                                 </div>
                                 <div>

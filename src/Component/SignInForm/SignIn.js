@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import UserInfo from '../FetchUser/UserInfo';
 import swal from 'sweetalert';
+import { Link } from 'react-router-dom';
 
 
 const SignIn = () => {
@@ -58,9 +58,9 @@ const SignIn = () => {
                         <div className="flex items-center justify-end">
 
                             <div className="text-sm">
-                                <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+                                <Link to='/forgotPass' className="font-medium text-indigo-600 hover:text-indigo-500">
                                     Forgot your password?
-                                </a>
+                                </Link>
                             </div>
                         </div>
 
@@ -78,7 +78,6 @@ const SignIn = () => {
                     </form>
                 </div>
             </div>
-            <UserInfo></UserInfo>
 
         </>
     );

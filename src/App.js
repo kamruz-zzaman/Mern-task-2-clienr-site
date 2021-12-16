@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import CreatePost from './Component/CreatePost/CreatePost';
-import UserReturn from './Component/FetchUser/UserReturn';
+import ForGotPass from './Component/ForgotPass/ForGotPass';
 import Home from './Component/Home/Home';
 import SignIn from './Component/SignInForm/SignIn';
 import SignUp from './Component/SignUpForm/SignUp';
@@ -19,6 +19,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path="signUp" element={<SignUp />}></Route>
+        </Routes>
+        <Routes>
+          <Route path="forgotPass" element={<ForGotPass />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

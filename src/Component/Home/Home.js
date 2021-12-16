@@ -70,10 +70,10 @@ const Home = () => {
                                     <Menu as="div" className="ml-3 relative">
                                         <div className='hidden sm:block'>
                                             <div className=' flex justify-between'>
-                                                <Link to='signUp' class="w-24 flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+                                                <Link to='signUp' className="w-24 flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
                                                     Sign up
                                                 </Link>
-                                                <Link to='signin' class="w-24 mx-5 flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+                                                <Link to='signin' className="w-24 mx-5 flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
                                                     Sign In
                                                 </Link>
                                             </div>

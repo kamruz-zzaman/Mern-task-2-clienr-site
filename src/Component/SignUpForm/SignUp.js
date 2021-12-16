@@ -1,10 +1,13 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import swal from 'sweetalert';
 
 const SignUp = () => {
     const { register, handleSubmit, reset } = useForm();
     // make hook form respons
     const onSubmit = data => {
+        console.log(data);
+
         fetch('http://localhost:5000/user', {
             method: 'POST',
             headers: {
@@ -13,14 +16,24 @@ const SignUp = () => {
             body: JSON.stringify(data)
         })
             .then(res => {
+                console.log(res);
                 // make response after post
                 if (res.ok) {
-                    alert('package added successfully')
+                    swal({
+                        title: "Good job!",
+                        text: "You clicked the button!",
+                        icon: "success",
+                    });
+                }
+                else {
+                    swal({
+                        text: "UserName or Email already taken",
+                        icon: "warning",
+                    });
                 }
             })
         reset()
     }
-    reset()
     return (
         <>
             <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -39,7 +52,7 @@ const SignUp = () => {
                             </div>
                             <div>
                                 <label for="email-address" className="sr-only">Email address</label>
-                                <input id="email-address" name="email" type="email" autocomplete="email" {...register("e-mail", { required: true })} className="appearance-none rounded-none relative block w-full my-1 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address" />
+                                <input id="email-address" name="email" type="email" autocomplete="email" {...register("email", { required: true })} className="appearance-none rounded-none relative block w-full my-1 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address" />
                             </div>
                             <div>
                                 <label for="password" className="sr-only">Password</label>

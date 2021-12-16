@@ -1,5 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import UserInfo from '../FetchUser/UserInfo';
+import UserReturn from '../FetchUser/UserReturn';
 
 const SignIn = () => {
     const { register, handleSubmit, reset } = useForm();
@@ -52,6 +54,8 @@ const SignIn = () => {
                     </form>
                 </div>
             </div>
+            <UserInfo></UserInfo>
+
         </>
     );
 };

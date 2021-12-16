@@ -5,19 +5,34 @@ const CreatePost = () => {
     const { register, handleSubmit, reset } = useForm();
     // make hook form respons
     const onSubmit = data => {
+        // fetch('http://localhost:5000/status', {
+        //     method: 'POST',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(data)
+        // })
+        //     .then(res => {
+        //         // make response after post
+        //         if (res.ok) {
+        //             alert('package added successfully')
+        //         }
+        //     })
+        const formData = new FormData();
+        formData.append('userStatus', data.texStatus);
+        formData.append('Image', data.imgStatus[0]);
         fetch('http://localhost:5000/status', {
             method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(data)
+            body: formData
         })
-            .then(res => {
-                // make response after post
-                if (res.ok) {
-                    alert('package added successfully')
-                }
+            .then(response => response.json())
+            .then(result => {
+                console.log('Success:', result);
             })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        console.log(data.imgStatus[0]);
         reset()
     }
     return (
@@ -41,10 +56,9 @@ const CreatePost = () => {
                                     <div className="flex text-sm text-gray-600">
                                         <label
                                             htmlFor="file-upload"
-                                            className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                                            className="relative cursor-pointer bg-white font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none"
                                         >
-                                            <p className='text-center cursor-copy' title='img/vedio'>Upload a file</p>
-                                            <input id="file-upload" name="file-upload" type="file" className="sr-only" />
+                                            <input id="file-upload" accept='image/*' type="file" {...register("imgStatus")} />
                                         </label>
                                     </div>
                                 </div>

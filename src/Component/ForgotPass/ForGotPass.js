@@ -1,10 +1,28 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-const ForGotPass = () => {
-    const { register, handleSubmit, watch } = useForm();
-    const onSubmit = data => console.log(data);
+import swal from 'sweetalert';
 
-    console.log(watch("example")); // watch input value by passing the name of it
+const ForGotPass = () => {
+    const { register, handleSubmit, watch, reset } = useForm();
+    const onSubmit = data => {
+        fetch(`http://localhost:5000/user`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => {
+                // make response after post
+                if (res.ok) {
+                    swal({
+                        title: "PassWord Reset successfull!",
+                        icon: "success",
+                    });
+                }
+            })
+        reset()
+    }
 
     return (
         <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">

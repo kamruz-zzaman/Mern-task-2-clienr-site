@@ -6,7 +6,7 @@ import logo from '../../Images/whole.png'
 import { Link } from 'react-router-dom'
 
 const navigation = [
-    { name: 'Your Posts', href: '#', current: false },
+    { name: 'Your Posts', href: 'posts', current: false },
     { name: 'Create Post', href: 'createPost', current: false },
 ]
 

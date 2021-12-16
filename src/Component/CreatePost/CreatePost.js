@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import swal from 'sweetalert';
 
 const CreatePost = () => {
     const { register, handleSubmit, reset } = useForm();
@@ -27,12 +28,13 @@ const CreatePost = () => {
         })
             .then(response => response.json())
             .then(result => {
-                console.log('Success:', result);
+                if (result) {
+                    swal({
+                        title: "Sign In successfull!",
+                        icon: "success",
+                    })
+                }
             })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        console.log(data.imgStatus[0]);
         reset()
     }
     return (

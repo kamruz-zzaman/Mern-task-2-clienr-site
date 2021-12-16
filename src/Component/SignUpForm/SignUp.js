@@ -20,14 +20,13 @@ const SignUp = () => {
                 // make response after post
                 if (res.ok) {
                     swal({
-                        title: "Good job!",
-                        text: "You clicked the button!",
+                        title: "Sign In successfull!",
                         icon: "success",
                     });
                 }
                 else {
                     swal({
-                        text: "UserName or Email already taken",
+                        title: "UserName or Email already taken!",
                         icon: "warning",
                     });
                 }
@@ -59,16 +58,6 @@ const SignUp = () => {
                                 <input id="password" name="password" type="password" autocomplete="current-password" {...register("password", { required: true })} className="appearance-none rounded-none relative block w-full my-1 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password" />
                             </div>
                         </div>
-
-                        <div className="flex items-center justify-end">
-
-                            <div className="text-sm">
-                                <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                                    Forgot your password?
-                                </a>
-                            </div>
-                        </div>
-
                         <div>
                             <button type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                 <span className="absolute left-0 inset-y-0 flex items-center pl-3">

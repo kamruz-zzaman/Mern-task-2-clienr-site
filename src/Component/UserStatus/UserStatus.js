@@ -13,7 +13,7 @@ const UserStatus = () => {
     }, []);
     return (
         <>
-            <section class="text-gray-600 body-font">
+            <section class="text-gray-600 body-font border-2">
                 {
                     status.map(stat => (
                         <UserStatusCard

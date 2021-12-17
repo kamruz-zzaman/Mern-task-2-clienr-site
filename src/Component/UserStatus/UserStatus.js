@@ -4,7 +4,6 @@ import UserStatusCard from './UserStatusCard';
 
 const UserStatus = () => {
     const [status, setStatus] = useState([]);
-    const [isloading, setIsLoading] = useState(true)
 
     useEffect(() => {
         fetch('http://localhost:5000/status')
@@ -12,7 +11,22 @@ const UserStatus = () => {
             .then(data => setStatus(data)
             )
     }, []);
-
+    const handleDeletUser = (id) => {
+        const delet = window.confirm('Are Your Sure For Delation?');
+        if (delet) {
+            fetch(`http://localhost:5000/status/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        alert('delet successfully')
+                        const remainingBooking = status.filter(booking => booking._id !== id)
+                        setStatus(remainingBooking)
+                    }
+                })
+        }
+    }
     return (
         <>
             {
@@ -24,6 +38,7 @@ const UserStatus = () => {
                                 <UserStatusCard
                                     key={stat._id}
                                     userStatuss={stat}
+                                    deletUser={handleDeletUser}
                                 ></UserStatusCard>
                             ))
                         }

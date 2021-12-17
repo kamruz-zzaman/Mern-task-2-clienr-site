@@ -2,8 +2,9 @@ import React from 'react';
 import { Menu, Transition } from '@headlessui/react'
 import { Link } from 'react-router-dom';
 
-const UserStatusCard = ({ userStatuss }) => {
-    const { _id, userStatus, image } = userStatuss;
+const UserStatusCard = (props) => {
+    const { _id, userStatus, image } = props.userStatuss;
+    const deletUser = props.deletUser;
     return (
         <>
             <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col border-2">
@@ -46,12 +47,12 @@ const UserStatusCard = ({ userStatuss }) => {
                                         </Menu.Item>
                                         <Menu.Item>
                                             {({ active }) => (
-                                                <Link
-                                                    to=""
-                                                    className='block text-center font-bold hover:bg-violet-600 hover:text-white'
+                                                <button
+                                                    onClick={() => deletUser(_id)}
+                                                    className='block text-center px-16 font-bold hover:bg-violet-600 hover:text-white'
                                                 >
                                                     Delet Post
-                                                </Link>
+                                                </button>
                                             )}
                                         </Menu.Item>
                                     </div>

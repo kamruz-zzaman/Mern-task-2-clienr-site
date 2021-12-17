@@ -7,6 +7,9 @@ const CreatePost = () => {
     // make hook form respons
     const onSubmit = data => {
         const formData = new FormData();
+        if (!data.imgStatus) {
+            return;
+        }
         formData.append('userStatus', data.texStatus);
         formData.append('Image', data.imgStatus[0]);
         fetch('http://localhost:5000/status', {
@@ -47,7 +50,7 @@ const CreatePost = () => {
                                             htmlFor="file-upload"
                                             className="relative cursor-pointer bg-white font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none"
                                         >
-                                            <input id="file-upload" accept='image/*' type="file" {...register("imgStatus")} />
+                                            <input id="file-upload" accept='image/*' type="file" required {...register("imgStatus")} />
                                         </label>
                                     </div>
                                 </div>

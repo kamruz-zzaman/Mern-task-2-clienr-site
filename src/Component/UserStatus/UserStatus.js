@@ -23,7 +23,7 @@ const UserStatus = () => {
                             status.map(stat => (
                                 <UserStatusCard
                                     key={stat._id}
-                                    userStatus={stat}
+                                    userStatuss={stat}
                                 ></UserStatusCard>
                             ))
                         }
